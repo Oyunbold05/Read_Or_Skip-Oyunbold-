@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="browser-bar">
+        <span class="browser-title"> Read or Skip</span>
+        <input type="text" value="http://readorskip.co.uk" readonly>
+        <button class="search-button">🔍</button>
+    </div>
+
+    <div class="login-container">
+        <h2>Read or Skip</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+    
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+    
+            <button type="submit" class="login-button">Login</button>
+        </form>
+
+        <p>Not a user? <span>Register Now:</span></p>
+        <a href="{% url 'register' %}" class="signup-button">Sign up</a>
+
+        <div class="footer-links">
+            <a href="#">About us</a>
+            <a href="#">Contact us</a>
+            <a href="#">FAQs</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

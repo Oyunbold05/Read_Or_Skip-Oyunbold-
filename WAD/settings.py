@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "accounts", # athentication
+    "ROS_App", 
 ]
 
 MIDDLEWARE = [
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "read_or_skip.urls"
+ROOT_URLCONF = "WAD.urls"
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "read_or_skip.wsgi.application"
+WSGI_APPLICATION = "WAD.wsgi.application"
 
 
 # Database
@@ -129,4 +129,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_IRL = '/login/'
+LOGOUT_REDIRECT_URL = '/login/'

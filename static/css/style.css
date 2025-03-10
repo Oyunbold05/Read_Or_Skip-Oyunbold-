@@ -114,3 +114,132 @@ input {
 .footer-links a:hover {
     color: lightgrey;
 }
+
+/* Home Page Styles */
+.home-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(50, 50, 50);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.home-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.home-header h1 {
+    font-size: 36px;
+    margin: 0;
+    color: white;
+}
+
+.home-nav {
+    margin-top: 15px;
+}
+
+.home-nav a {
+    color: white;
+    margin: 0 15px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.home-nav a:hover {
+    color: lightgrey;
+}
+
+/* Trending Books Section */
+.trending {
+    margin-bottom: 40px;
+}
+
+.trending h2 {
+    font-size: 28px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.book-card {
+    background-color: rgb(100, 100, 100);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.book-card h3 {
+    font-size: 20px;
+    margin: 10px 0 5px;
+    color: white;
+}
+
+.book-card p {
+    font-size: 16px;
+    color: lightgrey;
+}
+
+/* Categories Section */
+.categories {
+    margin-bottom: 40px;
+}
+
+.categories h2 {
+    font-size: 28px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.categories-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.category-item {
+    background-color: rgb(100, 100, 100);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.category-item:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+/* Footer Styles */
+.home-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgb(50, 50, 50);
+    border-radius: 10px;
+}
+
+.home-footer a {
+    color: white;
+    margin: 0 15px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.home-footer a:hover {
+    color: lightgrey;
+}

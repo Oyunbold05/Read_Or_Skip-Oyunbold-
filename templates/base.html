@@ -2,18 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Read or Skip</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Read Or Skip</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a> |
-        <a href="/login/">Login</a> |
-        <a href="/logout/">Logout</a>
-    </nav>
-
-    {% block content %}{% endblock %}
+    <div class="container mt-5">
+        <h1>Read Or Skip</h1>
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
 </body>
 </html>

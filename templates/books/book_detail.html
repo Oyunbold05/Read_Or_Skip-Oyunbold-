@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>{{ book.title }}</h1>
+    <h3>Author: {{ book.author }}</h3>
+
+    <h4>Write a Review:</h4>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+    </form>
+
+    <h4>Reviews:</h4>
+    {% for review in reviews %}
+        <p><strong>{{ review.user.username }} (Rating: {{ review.rating }})</strong></p>
+        <p>{{ review.review }}</p>
+        <p><em>{{ review.summary }}</em></p>
+        <hr>
+    {% endfor %}
+
+    <form method="POST" action="{% url 'add_to_tbr' book.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-secondary">Add to TBR</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,28 +1,38 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django.contrib import messages
-from .models import Book, TBR, Review
-from .forms import ReviewForm
+from django.shortcuts import render
 
-# View to handle the book detail page
-def book_detail(request, book_id):
-    book = Book.objects.get(id=book_id)
-    reviews = Review.objects.filter(book=book)
-    form = ReviewForm(request.POST or None)
-    
-    if request.method == "POST" and form.is_valid():
-        new_review = form.save(commit=False)
-        new_review.user = request.user
-        new_review.book = book
-        new_review.save()
-        return redirect('book_detail', book_id=book.id)
-    
-    return render(request, 'book_detail.html', {'book': book, 'reviews': reviews, 'form': form})
+# Create your views here.
 
-# View to handle adding books to TBR (To Be Read) list
-def add_to_tbr(request, book_id):
-    book = Book.objects.get(id=book_id)
-    if request.user.is_authenticated:
-        TBR.objects.create(user=request.user, book=book)
-        messages.success(request, "Book added to your To Be Read list!")
-    return redirect('book_detail', book_id=book.id)
+from django.shortcuts import render
+
+def home_view(request):
+    # Example data (replace with database queries later)
+    trending_books = [
+        {'title': 'Dracula', 'author': 'Bram Stoker', 'cover': 'dracula.jpg'},
+        {'title': 'The Little Prince', 'author': 'Antoine de Saint-Exupéry', 'cover': 'thelittleprince.jpg'},
+        {'title': 'Lord of the Rings', 'author': 'J.R.R. Tolkien', 'cover': 'lordoftherings.jpg'},
+    ]
+    categories = ['Fantasy', 'Classics', 'Thriller', 'Romance']
+
+    context = {
+        'trending_books': trending_books,
+        'categories': categories,
+    }
+    return render(request, 'ROS_App/home.html', context)
+
+def login_view(request):
+    return render(request, 'ROS_App/login.html')
+
+def logout_view(request):
+    return render (request, 'ROS_App/logout.html')
+
+def register_view(request):
+    return render(request, 'ROS_App/register.html')
+
+def user_register(request):
+    return render(request, 'ROS_App/register.html')
+
+def user_login(request):
+    return render(request, "ROS_App/login.html")
+
+def user_logout(request):
+    return render(request, "ROS_App/logout.html")

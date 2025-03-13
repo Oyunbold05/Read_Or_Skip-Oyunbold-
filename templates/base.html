@@ -2,16 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Read Or Skip</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read or Skip</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'static/CSS/base.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Read Or Skip</h1>
-        <div>
-            {% block content %}
-            {% endblock %}
+    
+    <div class="navbar">
+        <div class="left">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Log In</a></li>
+        </div>
+
+    
+        <div class="center">
+            <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact Us</a></li>
+            
+            </ul>
+        </div>
+
+        
+        <div class="right">
+            <li><a href="#">Log Out</a></li>
+            <li><a href="#">My Account</a></li>
+            <input type="text" placeholder="Search...">
         </div>
     </div>
+    {% block content %}{% endblock %}
 </body>
 </html>

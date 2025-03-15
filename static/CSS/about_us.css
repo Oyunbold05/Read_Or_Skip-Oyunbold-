@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Forum', sans-serif;
+    background-color: #dbc3b0;
+    padding: 20px;
+    padding-top: 80px;
+}
+
+/* Container for both sections */
+.about-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* FLEXBOX layout for sections */
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+/* Reverse layout for the second section */
+.about-section.reverse {
+    flex-direction: row-reverse;
+}
+
+/* TEXT BOX */
+.about-text {
+    width: 45%;
+    background: #e8d7cb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure heading has spacing */
+.about-text h2 {
+    margin-bottom: 10px;
+}
+
+/* IMAGE BOX */
+.about-image {
+    width: 45%;
+    display: flex;
+    justify-content: center; /* Center image */
+}
+
+.about-image img {
+    width: 100%; /* Make image fill its container */
+    max-width: 300px; /* Prevent oversized images */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-section.reverse {
+        flex-direction: column;
+    }
+
+    .about-text, .about-image {
+        width: 90%;
+        margin-bottom: 15px;
+    }
+}

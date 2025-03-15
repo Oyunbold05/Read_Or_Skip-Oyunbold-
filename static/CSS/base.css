@@ -1,0 +1,74 @@
+body {
+    font-family: 'Forum', sans-serif;
+    background-color: lightblue;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px; 
+    min-height: 100%; 
+}
+
+/* Navbar styles */
+.navbar {
+    font-family: 'Forum', sans-serif !important; 
+    background: #03254c; 
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Left, center, right sections of the navbar */
+.navbar .left, .navbar .right {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar .center {
+    display: flex;
+    justify-content: space-evenly;
+    flex: 2;
+    text-align: center;
+}
+
+/* List styling */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0 10px;
+}
+
+.navbar li a {
+    background-color: #104a8e;
+    color: white;
+    font-size: 20px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-family: 'Forum', sans-serif; 
+}
+
+.navbar li a:hover {
+    background-color: #5fa3d1;
+}
+
+/* Search input styling */
+.navbar input[type="text"] {
+    padding: 8px;
+    width: 150px;
+    border-radius: 20px;
+    border: none;
+    font-family: 'Forum', sans-serif;  
+}

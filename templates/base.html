@@ -5,34 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Read or Skip</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'static/CSS/base.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    
     <div class="navbar">
+        <!-- Left section: Home and Log In links -->
         <div class="left">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Log In</a></li>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Log In</a></li>
+            </ul>
         </div>
-
     
+        <!-- Center section: FAQ, About, Contact Us links -->
         <div class="center">
             <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact Us</a></li>
-            
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact Us</a></li>
             </ul>
         </div>
 
-        
+        <!-- Right section: Log Out, My Account links, and search input -->
         <div class="right">
-            <li><a href="#">Log Out</a></li>
-            <li><a href="#">My Account</a></li>
+            <ul>
+                <li><a href="#">Log Out</a></li>
+                <li><a href="#">My Account</a></li>
+            </ul>
             <input type="text" placeholder="Search...">
         </div>
     </div>
+
     {% block content %}{% endblock %}
 </body>
 </html>

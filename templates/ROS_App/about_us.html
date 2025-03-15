@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'CSS/about_us.css' %}">
+    <!-- Inside your HTML head tag -->
+    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+    <h1>About Us</h1>
+    <div class="about-container">
+
+        <!-- FIRST SECTION -->
+        <div class="about-section">
+            <div class="about-image">
+                <img src="{% static 'images/about_us_1.jpg' %}" alt="About Us Image 1">
+            </div>
+            <div class="about-text">
+                <p>The inspiration for this project was our love for literature, 
+                    some of us are avid readers who enjoy a cozy reading afternoon with a 
+                    hot cup of tea and the rain outside. Some of us are not but are slowly 
+                    getting more curious about what books have to offer and just dabbing into new genres. 
+                    We wanted to create a cozy space for people to explore new books that, for some of us, feel like home 
+                    and to inspire others to take the plunge and pick up that new book. 
+                    They can do what Gandalf said to Bilbo in the Shire: "The world is not in your books and maps, 
+                    it's out there..." after exiting the app. Until then, hurry up, the tea is about to get cold!</p>
+            </div>
+        </div>
+
+        <!-- SECOND SECTION  -->
+        <div class="about-section reverse">
+            <div class="about-image">
+                <img src="{% static 'images/about_us_2.jpg' %}" alt="About Us Image 2"> 
+            </div>
+            <div class="about-text">
+                <p>cdhjfghdgfh</p>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

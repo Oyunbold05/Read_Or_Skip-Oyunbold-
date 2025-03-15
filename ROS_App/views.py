@@ -39,3 +39,12 @@ def user_logout(request):
 
 def aboutUs_view(request):
     return render(request, "ROS_App/about_us.html")
+
+def faq_view(request):
+    return render(request, "ROS_App/faq.html")
+
+def contactUs_view(request):
+    return render(request, "ROS_App/contact_us.html")
+
+def myAccount_view(request):
+    return render(request,"ROS_App/my_account.html")

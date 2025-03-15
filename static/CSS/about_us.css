@@ -11,6 +11,10 @@ body {
     padding-top: 80px;
 }
 
+h1{
+    margin-bottom: 20px;
+}
+
 /* Container for both sections */
 .about-container {
     max-width: 1000px;
@@ -18,7 +22,9 @@ body {
 }
 
 /* FLEXBOX layout for sections */
-.about-section {
+.about-section 
+{   
+    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;

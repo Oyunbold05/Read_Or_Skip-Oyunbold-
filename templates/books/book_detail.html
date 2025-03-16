@@ -1,28 +1,80 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 <div class="container mt-5">
     <h1>{{ book.title }}</h1>
     <h3>Author: {{ book.author }}</h3>
+    <!-- Display the book cover image -->
+    <img src="{% static 'images/dracula.jpg' %}" alt="{{ book.title }}" class="book-cover">
+    <p>{{ book.description }}</p>
+
+    <!-- Display the average rating as a number -->
+    <h4>Average Rating: {{ average_rating | floatformat:2 }}</h4>  <!-- Display average rating -->
+
+    <!-- Add to TBR Button (moved to the top) -->
+    <form method="POST" action="{% url 'add_to_tbr' book.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-secondary mb-3">Add to TBR</button>
+    </form>
+
+    <!-- Go to TBR List Button (moved to the top) -->
+    <form method="GET" action="{% url 'tbr_list' %}">
+        <button type="submit" class="btn btn-info mb-3">Go to TBR List</button> <!-- Button to go to TBR List -->
+    </form>
 
     <h4>Write a Review:</h4>
-    <form method="POST">
+    <form method="POST" class="review-form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Submit Review</button>
+        
+        <!-- Review Section -->
+        <div class="form-group">
+            <label for="review">Review:</label>
+            {{ form.review }}
+        </div>
+
+        <!-- Summary Section -->
+        <div class="form-group">
+            <label for="summary">Summary:</label>
+            {{ form.summary }}
+        </div>
+
+        <!-- Rating Section -->
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            {{ form.rating }}
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Share</button>
     </form>
 
     <h4>Reviews:</h4>
     {% for review in reviews %}
-        <p><strong>{{ review.user.username }} (Rating: {{ review.rating }})</strong></p>
-        <p>{{ review.review }}</p>
-        <p><em>{{ review.summary }}</em></p>
+        <div class="review">
+            <p><strong>{{ review.user.username }} (Rating: {{ review.rating }})</strong></p>
+            <p>{{ review.review }}</p>
+            
+            {% if review.summary %}
+                <h5>Summary:</h5>
+                <p>{{ review.summary }}</p>  <!-- Display the summary if it's provided -->
+            {% endif %}
+            
+            <!-- Only allow the review owner to delete or edit their review -->
+            {% if review.user == request.user %}
+                <form method="POST" action="{% url 'delete_review' review.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete Review</button>
+                </form>
+
+                <!-- Edit Review Button -->
+                <form method="GET" action="{% url 'edit_review' review.id %}">
+                    <button type="submit" class="btn btn-warning mt-2">Edit Review</button>
+                </form>
+            {% endif %}
+        </div>
         <hr>
     {% endfor %}
-
-    <form method="POST" action="{% url 'add_to_tbr' book.id %}">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-secondary">Add to TBR</button>
-    </form>
 </div>
 {% endblock %}
